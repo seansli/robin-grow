@@ -28,12 +28,13 @@ function howLongLeft() { // mostly from /u/Yantrio
     'use strict';
 
 
-    $(".robin-chat--sidebar").prepend("<div class='addon' style='font-size:15pt;display:block;'><div class='grows'></div><div class='stays'></div><div class='abandons'></div><div class='timeleft'></div></div>");
+    $(".robin-chat--sidebar").prepend("<div class='addon' style='font-size:15pt;display:block;'><div class='grows'></div><div class='stays'></div><div class='abandons'></div><div class='novotes'></div><div class='timeleft'></div></div>");
     var timeStarted = new Date();
     function update() {
         $(".timeleft").text(howLongLeft()+" minutes remaining");
         $(".addon .grows").text("Grows: "+$(".robin-room-participant.robin--vote-class--increase").length);
         $(".addon .abandons").text("Abandons: "+$(".robin-room-participant.robin--vote-class--abandon").length);
+        $(".addon .novotes").text("NoVotes: "+$(".robin-room-participant.robin--vote-class--novote").length);
         $(".addon .stays").text("Stays: "+$(".robin-room-participant.robin--vote-class--continue").length);
 
         var lastChatString = $(".robin-message--timestamp").last().attr("datetime");
